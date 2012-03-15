@@ -54,7 +54,13 @@ group :ui do
     :hide_success => true do
     watch('src/haml/(.*)\.haml')
   end
-  
+
+  guard 'webrick', 
+    :host => '127.0.0.1', 
+    :port => '3000', 
+    :docroot => 'app/htm/' do
+  end
+
   guard 'livereload', 
     :apply_js_live => true, 
     :apply_css_live => true,

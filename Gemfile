@@ -23,6 +23,7 @@ gem 'guard-jasmine'
 gem 'guard-jasmine-headless-webkit'
 gem 'guard-jstd'
 gem 'guard-livereload'
+gem 'guard-webrick'
 
 # BDD Framework
 gem 'jasmine'
