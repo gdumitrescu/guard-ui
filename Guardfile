@@ -1,4 +1,4 @@
-# More info at 
+# More info at
 # https://github.com/guard/guard#readme
 # https://github.com/guard/guard/wiki/Guardfile-examples
 
@@ -6,40 +6,30 @@
 
 group :ui do
 
-  guard :bundler, 
+  guard :bundler,
     :hide_success => true do
     watch('Gemfile')
   end
-  
-  guard 'coffeescript', 
-    :output => 'app/js', 
-    :bare => %w{ a.coffee }, 
+
+  guard 'coffeescript',
+    :output => 'app/js',
     :hide_success => true do
     watch('src/coffee/(.*)\.coffee')
   end
-  
-  guard 'coffeescript', 
+
+  guard 'coffeescript',
     :output => 'spec/javascripts',
     :hide_success => true do
     watch('spec/coffeescripts/(.*)\.coffee')
   end
-    
-  #guard 'jasmine-headless-webkit' do
-  #  watch('spec/coffeescripts/(.*)\_spec.coffee') { |m| newest_js_file("spec/javascripts/") }
-  #end
-  
-  #guard "jstd" do
-  #  watch(%r{spec/coffeescripts/(.+)\.(js\.coffee|js)}) { |m| "spec/javascripts/#{m[1]}_spec.#{m[2]}" }
-  #end
 
-  #Jstd.configure do |c|
-  #  c.java_path = "tools/JsTestDriver-1.3.4.b.jar"
-  #  c.browser_paths = "\`which open\`"
-  #  c.jstd_config_path = 'jsTestDriver.conf'
-  #  c.start_server = false
-  #  c.capture_browser = false    # false is the default
-  #end
- 
+  # guard 'jasmine-headless-webkit',
+  #   :output => 'spec/javascripts/',
+  #   :colors => true,
+  #   :report => false do
+  #   watch('spec/coffeescripts/(.*)\_spec.coffee')
+  # end
+
   guard 'compass',
     :output => 'app/css',
     :workdir => 'src/sass',
@@ -47,7 +37,7 @@ group :ui do
     :hide_success => true do
     watch('src/sass/(.*)\.sass')
   end
-  
+
   guard 'haml',
     :input => 'src/haml',
     :output => 'app/htm',
@@ -55,19 +45,21 @@ group :ui do
     watch('src/haml/(.*)\.haml')
   end
 
-  guard 'webrick', 
-    :host => '127.0.0.1', 
-    :port => '3000', 
+  guard 'webrick',
+    :host => '127.0.0.1',
+    :port => '3000',
     :docroot => 'app/htm/' do
   end
 
-  guard 'livereload', 
-    :apply_js_live => true, 
+  guard 'livereload',
+    :grace_period => 0,
+    :apply_js_live => true,
     :apply_css_live => true,
     :apply_htm_live => true do
-    watch('app/js/.+\.js$')
-    watch('app/css/.+\.css$')
-    watch('app/htm/.+\.htm$')
+    watch('app/img/(.*)\.png')
+    watch('app/js/(.*)\.js')
+    watch('app/css/(.*)\.css')
+    watch('app/htm/(.*)\.htm')
   end
 
 end
