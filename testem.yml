@@ -1,0 +1,17 @@
+framework: jasmine
+
+launch_in_dev: 
+ - PhantomJS
+
+src_files:
+ - src/coffee/*.coffee
+ - src/coffee/**/*.coffee
+ - spec/coffeescripts/*_spec.coffee
+ - spec/coffeescripts/**/*_spec.coffee
+
+serve_files:
+ - app/js/*.js
+ - app/js/**/*.js
+ - spec/javascripts/*_spec.js
+ - spec/javascripts/**/*_spec.js
+
