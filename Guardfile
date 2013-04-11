@@ -6,7 +6,7 @@
 
 group :ui do
 
-  guard :bundler,
+  guard 'bundler',
     :hide_success => true do
     watch('Gemfile')
   end
@@ -14,35 +14,31 @@ group :ui do
   guard 'coffeescript',
     :output => 'app/js',
     :hide_success => true do
-    watch('src/coffee/(.*)\.coffee')
+    watch('^src/coffee/(.*)\.coffee')
   end
 
   guard 'coffeescript',
     :output => 'spec/javascripts',
     :hide_success => true do
-    watch('spec/coffeescripts/(.*)\.coffee')
+    watch('^spec/coffeescripts/(.*)\.coffee')
   end
-
-  # guard 'jasmine-headless-webkit',
-  #   :output => 'spec/javascripts/',
-  #   :colors => true,
-  #   :report => false do
-  #   watch('spec/coffeescripts/(.*)\_spec.coffee')
-  # end
 
   guard 'compass',
     :output => 'app/css',
-    :workdir => 'src/sass',
     :configuration_file => 'config/compass.rb',
     :hide_success => true do
-    watch('src/sass/(.*)\.sass')
+    watch('^src/sass/(.*)\.sass')
   end
 
-  guard 'haml',
-    :input => 'src/haml',
-    :output => 'app/htm',
-    :hide_success => true do
-    watch('src/haml/(.*)\.haml')
+  guard 'livereload',
+    :grace_period => 0,
+    :apply_js_live => true,
+    :apply_css_live => true,
+    :apply_htm_live => true do
+    watch('^app/img/(.*)\.png')
+    watch('^app/js/(.*)\.js')
+    watch('^app/css/(.*)\.css')
+    watch('^app/htm/(.*)\.htm')
   end
 
   guard 'webrick',
@@ -51,15 +47,5 @@ group :ui do
     :docroot => 'app/htm/' do
   end
 
-  guard 'livereload',
-    :grace_period => 0,
-    :apply_js_live => true,
-    :apply_css_live => true,
-    :apply_htm_live => true do
-    watch('app/img/(.*)\.png')
-    watch('app/js/(.*)\.js')
-    watch('app/css/(.*)\.css')
-    watch('app/htm/(.*)\.htm')
-  end
-
 end
+
