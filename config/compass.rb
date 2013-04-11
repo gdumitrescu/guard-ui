@@ -1,8 +1,8 @@
 require 'compass'
-require 'haml'
+
+# Require any additional compass plugins here.
 require 'sass'
 require 'sassy-buttons'
-# Require any additional compass plugins here.
 
 # Get the directory that this configuration file exists in
 dir_src = File.dirname(__FILE__)
@@ -11,7 +11,7 @@ dir_src = File.dirname(__FILE__)
 http_path = "/"
 project_path = File.join(dir_src, "/", "")
 
-sass_dir = "sass"
+sass_dir = "src/sass"
 sass_path = dir_src
 
 css_dir = "css"
@@ -42,4 +42,4 @@ preferred_syntax = :sass
 
 # and then run:
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
-debug_info = false
+debug_info = true
