@@ -1,0 +1,4 @@
+[subtree "src/sass"]
+  url = git@github.com:gdumitrescu/modular-sass.git
+  path = src/sass
+  branch = master
