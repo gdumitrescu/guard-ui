@@ -27,7 +27,7 @@ group :ui do
     :output => 'app/css',
     :configuration_file => 'config/compass.rb',
     :hide_success => true do
-    watch('^src/sass/(.*)\.sass')
+    watch('^src/s[ac]ss/(.*)\.s[ac]ss')
   end
 
   guard 'livereload',
